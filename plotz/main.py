@@ -14,5 +14,5 @@ async def plot(data: PlotData):
     return FileResponse(
             path=image_path,
             media_type="image/png",
-            background=BackgroundTask(remove_tmp_image)
+            background=BackgroundTask(remove_tmp_image, image_path)
             )
