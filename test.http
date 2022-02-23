@@ -1,0 +1,23 @@
+POST http://localhost:8000/api/plot
+content-type: application/json
+
+{
+  "title": "Title of the plot",
+  "x-label": "x label",
+  "y-label": "y label",
+  "values": [
+    {
+        "label": "chocolate",
+        "value": 123
+    },
+    {
+        "label": "vanilla",
+        "value": 321
+    },
+    {
+        "label": "oreo",
+        "value": 999
+    }
+  ],
+  "type": 0
+}
