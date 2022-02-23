@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from enum import IntEnum
+from enum import Enum
 from typing import Optional
 
 """
@@ -12,10 +12,10 @@ from typing import Optional
 }
 """
 
-class PlotType(IntEnum):
-    bar = 0
-    pie = 1
-    stacked = 2
+class PlotType(str, Enum):
+    bar = "bar"
+    pie = "pie"
+    stacked = "stacked"
 
 class PlotValues(BaseModel):
     label: str
