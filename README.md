@@ -34,24 +34,4 @@ content-type: application/json
     }
   ]
 }
-{
-  "title": "Title of the plot",
-  "x_label": "x label",
-  "y_label": "y label",
-  "type": "pie",
-  "values": [
-    {
-        "label": "chocolate",
-        "value": 123
-    },
-    {
-        "label": "vanilla",
-        "value": 321
-    },
-    {
-        "label": "oreo",
-        "value": 999
-    }
-  ]
-}
 ```
