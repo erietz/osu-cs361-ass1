@@ -12,4 +12,4 @@ requirements:
 
 .PHONY: install
 test:
-	python -m pytest
+	python -m pytest -vvv

@@ -2,6 +2,7 @@ from datetime import datetime
 from matplotlib import pyplot as plt
 from pathlib import Path
 import seaborn as sns
+from random import randint
 
 from .types import PlotData, PlotType
 
@@ -9,6 +10,11 @@ sns.set_theme(style="darkgrid", palette="Set3")
 
 def get_time_stamp() -> str:
     return datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
+
+def generate_filename(tag: str) -> str:
+    time_stamp = get_time_stamp()
+    random_int = randint(1e6, 1e7 - 1)
+    return f"tmp/{time_stamp}-{tag}-{random_int}.png"
 
 def remove_tmp_image(path: Path) -> None:
     path.unlink(missing_ok=True)
@@ -25,7 +31,7 @@ def plot_data(data: PlotData) -> Path:
         raise Exception(f"type: {data.type} is not a valid option")
 
 def plot_pie(data: PlotData, time_stamp: str) -> Path:
-    out_file = f"tmp/{time_stamp}-{data.type.name}.png"
+    out_file = generate_filename(data.type.name)
     values = [i.value for i in data.values]
     labels = [i.label for i in data.values]
 
@@ -38,7 +44,7 @@ def plot_pie(data: PlotData, time_stamp: str) -> Path:
     return Path(out_file)
 
 def plot_bar(data: PlotData, time_stamp: str) -> Path:
-    out_file = f"tmp/{time_stamp}-{data.type.name}.png"
+    out_file = generate_filename(data.type.name)
     labels = [i.label for i in data.values]
     values = [i.value for i in data.values]
 
